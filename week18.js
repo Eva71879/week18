@@ -2,61 +2,65 @@
 //Создайте функцию makeOne которая записывает в Local Storage ключ games со значением 11. Вызывается функция по кнопке Задание 1.
 
 function makeOne() {
-	//Ваш код
+	window.localStorage.setItem('games', '11');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-1').addEventListener('click', makeOne);
+
 
 //Задание 2
 //Создайте функцию makeTwo, которая сохраняет в Local Storage строку "7,6,5". Ключ задайте самостоятельно. Вызывается функция по кнопке Задание 2.
 
 function makeTwo() {
-	//Ваш код
+	window.localStorage.setItem('numbers', '7,6,5');
 	console.log('Строка "7,6,5" была записана в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-2').addEventListener('click', makeTwo);
+
 
 //Задание 3
 //Создайте функцию makeThree, которая сохраняет в Local Storage строку "name=John, age=25". Ключ задайте самостоятельно. Вызывается функция по кнопке Задание 3.
 
 function makeThree() {
-	//Ваш код
+	window.localStorage.setItem('user', 'name=John, age=25');
 	console.log('Строка "name=John, age=25" была записана в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-3').addEventListener('click', makeThree);
 
 //Задание 4
 //Создайте функцию makeFour, которая сохраняет в Local Storage логическое значение true. Ключ задайте самостоятельно. Вызывается функция по кнопке Задание 4.
 
 function makeFour() {
-	//Ваш код
+	window.localStorage.setItem('boolean', 'true');
 	console.log('Логическое значение true было записано в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-4').addEventListener('click', makeFour);
 
 //Задание 5
 //Создайте функцию makeFive, которая сохраняет в Local Storage значение null. Ключ задайте самостоятельно. Вызывается функция по кнопке Задание 5.
 
 function makeFive() {
-	//Ваш код
+	window.localStorage.setItem('value', 'null');
 	console.log('Значение null было записано в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-5').addEventListener('click', makeFive);
 
 //Задание 6
 //Создайте функцию makeSix, которая сохраняет в Local Storage по ключу objectSix объект obj = { name: "Алиса", age: 30 }. Вызывается функция по кнопке Задание 6.
 //Подсказка: Для преобразования объекта в строку используйте метод JSON.stringify()
 
 function makeSix() {
-	//Ваш код
+	const obj = {name: "Алиса", age: 30};
+	const objJSON = JSON.stringify(obj);
+	window.localStorage.setItem('objectSix', objJSON);
 	console.log('Объект obj был записан в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-6').addEventListener('click', makeSix);
 
 //Задание 7
 //Создайте функцию makeSeven, которая сохраняет в Local Storage по ключу objectSeven объект obj = {
@@ -68,11 +72,18 @@ function makeSix() {
 //Подсказка: Для преобразования объекта в строку используйте метод JSON.stringify()
 
 function makeSeven() {
-	//Ваш код
+	const obj = {
+		  city: "Лондон",
+		  country: "Великобритания",
+		  population: 8900000,
+		  language: "английский"
+		};
+	const objJSON = JSON.stringify(obj);
+	window.localStorage.setItem('objectSeven', objJSON);
 	console.log('Объект obj был записан в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-7').addEventListener('click', makeSeven);
 
 //Задание 8
 //Создайте функцию makeEight, которая сохраняет в Local Storage по ключу objectEight объект obj = {
@@ -84,33 +95,41 @@ function makeSeven() {
 //Подсказка: Для преобразования объекта в строку используйте метод JSON.stringify()
 
 function makeEight() {
-	//Ваш код
+	const objJSON = JSON.stringify (
+		obj = {
+		  fruit: "Яблоко",
+		  color: "красное",
+		  quantity: 10,
+		  price: 199
+		});
+	window.localStorage.setItem('objectEight', objJSON);
 	console.log('Объект obj был записан в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-8').addEventListener('click', makeEight);
 
 //Задание 9
 //Создайте функцию makeNine, которая сохраняет в Local Storage по ключу arrayNine массив arr = [1, 2, 3, 4, 5]. Вызывается функция по кнопке Задание 9.
 //Подсказка: Для преобразования массива в строку используйте метод JSON.stringify()
 
 function makeNine() {
-	//Ваш код
+	const arrayNineJSON = JSON.stringify (arr = [1, 2, 3, 4, 5]);
+	window.localStorage.setItem('arrayNine', arrayNineJSON);
 	console.log('Массив arr был записан в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-9').addEventListener('click', makeNine);
 
 //Задание 10
 //Создайте функцию makeTen, которая сохраняет в Local Storage по ключу arrayTen массив arr = ["яблоко", "банан", "апельсин"]. Вызывается функция по кнопке Задание 10.
 //Подсказка: Для преобразования массива в строку используйте метод JSON.stringify()
 
 function makeTen() {
-	//Ваш код
+	window.localStorage.setItem('arrayTen', JSON.stringify(arr = ["яблоко", "банан", "апельсин"]));
 	console.log('Массив arr был записан в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-10').addEventListener('click', makeTen);
 
 //Задание 11
 //Создайте функцию makeEleven, которая сохраняет в Local Storage по ключу arrayEleven массив arr = [
@@ -121,29 +140,37 @@ function makeTen() {
 //Подсказка: Для преобразования массива в строку используйте метод JSON.stringify()
 
 function makeEleven() {
-	//Ваш код
+	const arr = [
+		{ name: "Алиса", age: 30 },
+		{ name: "Филин", age: 35 },
+		{ name: "Кот", age: 40 }
+		];
+	
+	window.localStorage.setItem('arrayEleven', JSON.stringify(arr));
 	console.log('Массив arr был записан в Local Storage.');
 }
 
-//добавьте слушатель события
+document.querySelector('.b-11').addEventListener('click', makeEleven);
 
 //Задание 12
-//Создайте функцию showEleven, которая при нажатии кнопки Задание 12 получит из Local Storage сохраннённый массив arrayEleven. Выведите в practicum12 в формате ключ пробел значение. Вызывается функция по кнопке Задание 12.
+//Создайте функцию showEleven, которая при нажатии кнопки Задание 12 получит из Local Storage сохранённый массив arrayEleven. Выведите в practicum12 в формате ключ пробел значение. Вызывается функция по кнопке Задание 12.
 //Подсказка: Для преобразования строки в объект используйте метод JSON.parse()
 
 function showEleven() {
-	//Ваш код
+	const arrayElevenJSON = window.localStorage.getItem('arrayEleven');
+	const arrayEleven = JSON.parse(arrayElevenJSON);
+
 	let output = '';
 	for (let i = 0; i < arrayEleven.length; i++) {
 		const object = arrayEleven[i];
 		for (let key in object) {
-			output += `${key} ${object[key]}`;
+			output += `${key} ${object[key]} </br>`;
 		}
 	}
-	document.querySelector('.practicum12').textContent = output;
+	document.querySelector('.practicum12').innerHTML = output;
 }
 
-//добавьте слушатель события
+document.querySelector('.b-12').addEventListener('click', showEleven);
 
 //Задание 13
 //Создайте функцию showTen, которая при нажатии кнопки Задание 12 получит из Local Storage сохраннённый массив arrayTen. Выведите в элемент с классом practicum13 в формате ключ пробел значение перенос строки. Вызывается функция по кнопке Задание 13.
@@ -309,7 +336,7 @@ document.querySelector('.b-25').addEventListener('click', clearCart);
 //При загрузке страницы установите cookie с именем "username" и значением "Кот Учёный". Выведите сообщение в консоль, подтверждающее успешное создание cookie.
 
 //Ваш код
-console.log("Cookie 'username' установлен.");
+// console.log("Cookie 'username' установлен.");раскоментить
 
 //Задание 27
 //Допишите функцию getCookie, которая принимает имя cookie. Функция должна получать значение cookie с указанным именем, возвращать его и записывать в элемент с классом practicum27. Если cookie с указанным именем не найден, функция должна возвращать пустую строку. Вызывается функция по кнопке Задание 27. Выведите куку с именем "username".
