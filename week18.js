@@ -157,9 +157,8 @@ document.querySelector('.b-11').addEventListener('click', makeEleven);
 //Подсказка: Для преобразования строки в объект используйте метод JSON.parse()
 
 function showEleven() {
-	const arrayElevenJSON = window.localStorage.getItem('arrayEleven');
+	const arrayElevenJSON = localStorage.getItem('arrayEleven');
 	const arrayEleven = JSON.parse(arrayElevenJSON);
-
 	let output = '';
 	for (let i = 0; i < arrayEleven.length; i++) {
 		const object = arrayEleven[i];
@@ -173,14 +172,15 @@ function showEleven() {
 document.querySelector('.b-12').addEventListener('click', showEleven);
 
 //Задание 13
-//Создайте функцию showTen, которая при нажатии кнопки Задание 12 получит из Local Storage сохраннённый массив arrayTen. Выведите в элемент с классом practicum13 в формате ключ пробел значение перенос строки. Вызывается функция по кнопке Задание 13.
+//Создайте функцию showTen, которая при нажатии кнопки Задание 13 получит из Local Storage сохраннённый массив arrayTen. Выведите в элемент с классом practicum13 в формате ключ пробел значение перенос строки. Вызывается функция по кнопке Задание 13.
 //Подсказка: Для преобразования строки в объект используйте метод JSON.parse(). Для работы с массивом используйте циклы.
 
 const showTen = () => {
-	const arrayTenString = LocalStorage.getItem('arrayTen');
+	const arrayTenString = localStorage.getItem('arrayTen');
 	if (arrayTenString) {
-		//Ваш код
+		const arrayTen = JSON.parse(arrayTenString);
 		const resultElement = document.querySelector('.practicum13');
+		resultElement.innerHTML = '';
 		for (const key in arrayTen) {
 			const value = arrayTen[key];
 			resultElement.innerHTML += `${key}: ${value}<br>`;
@@ -190,16 +190,22 @@ const showTen = () => {
 	}
 };
 
-//добавьте слушатель события
+document.querySelector('.b-13').addEventListener('click', showTen);
 
 //Задание 14
-//Создайте функцию showNine, которая при нажатии кнопки Задание 14 получит из Local Storage сохраннённый массив arrayNine. Выведите в элемент с классом practicum14 в формате ключ пробел значение перенос строки. Вызывается функция по кнопке Задание 14.
+//Создайте функцию showNine, которая при нажатии кнопки Задание 14 получит из Local Storage сохранённый массив arrayNine. Выведите в элемент с классом practicum14 в формате ключ пробел значение перенос строки. Вызывается функция по кнопке Задание 14.
 //Подсказка: Для преобразования строки в объект используйте метод JSON.parse(). Для работы с массивом используйте циклы.
 
 const showNine = () => {
-	const arrayNineString = LocalStorage.getItem('arrayNine');
+	const arrayNineString = localStorage.getItem('arrayNine');
 	if (arrayNineString) {
-		//Ваш код
+		const arrayNine = JSON.parse(arrayNineString);
+		const resultElement = document.querySelector('.practicum14');
+		resultElement.innerHTML = '';
+		for (const key in arrayNine) {
+			const value = arrayNine[key];
+			resultElement.innerHTML += `${key}: ${value} </br>`
+		}
 	} else {
 		console.log('Массив arrayNine не найден в Local Storage.');
 	}
@@ -208,28 +214,38 @@ const showNine = () => {
 document.querySelector('.b-14').addEventListener('click', showNine);
 
 //Задание 15
-//Создайте функцию showEight, которая при нажатии кнопки Задание 15 получит из Local Storage сохраннённый объект objectEight. Выведите в элемент с классом practicum15 в формате значение точка с запятой. Вызывается функция по кнопке Задание 15.
+//Создайте функцию showEight, которая при нажатии кнопки Задание 15 получит из Local Storage сохранённый объект objectEight. Выведите в элемент с классом practicum15 в формате значение точка с запятой. Вызывается функция по кнопке Задание 15.
 
 const showEight = () => {
-	//Ваш код
+	const objectEightString = localStorage.getItem('objectEight');
+	const objectEight = JSON.parse(objectEightString);
+	const resultElement = document.querySelector('.practicum15');
+	resultElement.innerHTML = '';
+	for (const key in objectEight) {
+		const value = objectEight[key];
+		resultElement.innerHTML += `${value};`;
+	}
 };
 
 document.querySelector('.b-15').addEventListener('click', showEight);
 
 //Задание 16
-//Создайте функцию showSeven, которая при нажатии кнопки Задание 16 получит из Local Storage сохраннённый объект objectSeven. Выведите в элемент с классом practicum16 строку: "В Лондоне живёт 8900000 человек", вместо названия города и числа жителей, используйте значения по ключу city и population соответственно. Вызывается функция по кнопке Задание 16.
+//Создайте функцию showSeven, которая при нажатии кнопки Задание 16 получит из Local Storage сохранённый объект objectSeven. Выведите в элемент с классом practicum16 строку: "В Лондоне живёт 8900000 человек", вместо названия города и числа жителей, используйте значения по ключу city и population соответственно. Вызывается функция по кнопке Задание 16.
 
 const showSeven = () => {
-	//Ваш код
+	const objectSeven = JSON.parse(localStorage.getItem('objectSeven'));
+	const resultElement = document.querySelector('.practicum16');
+	resultElement.innerHTML = `В ${objectSeven.city}е живет ${objectSeven.population} человек`;
 };
 
 document.querySelector('.b-16').addEventListener('click', showSeven);
 
 //Задание 17
-//Создайте функцию showSix, которая при нажатии кнопки Задание 17 получит из Local Storage сохраннённый объект objectSix. Выведите в элемент с классом practicum17 строку: "Привет! Я Алиса. Мне 30 лет.", вместо имени и возраста, используйте значения по ключу name и age соответственно. Вызывается функция по кнопке Задание 17.
+//Создайте функцию showSix, которая при нажатии кнопки Задание 17 получит из Local Storage сохранённый объект objectSix. Выведите в элемент с классом practicum17 строку: "Привет! Я Алиса. Мне 30 лет.", вместо имени и возраста, используйте значения по ключу name и age соответственно. Вызывается функция по кнопке Задание 17.
 
 const showSix = () => {
-	//Ваш код
+	const objectSix = JSON.parse(localStorage.getItem('objectSix'));
+	document.querySelector('.practicum17').innerHTML += `Привет! Я ${objectSix.name}. Мне ${objectSix.age} лет`
 };
 
 document.querySelector('.b-17').addEventListener('click', showSix);
@@ -238,55 +254,61 @@ document.querySelector('.b-17').addEventListener('click', showSix);
 //Создайте функцию clearLocalStorage, которая очищает весь Local Storage. Вызывается функция по кнопке Задание 18.
 
 const clearLocalStorage = () => {
-	//Ваш код
+	localStorage.clear();
 	console.log('Local Storage очищен.');
 };
 
-//добавьте слушатель события
+document.querySelector('.b-18').addEventListener('click', clearLocalStorage);
 
 //Задание 19
-//Cоздана форма с одним поле ввода, в которое пользователь может вводить только числа. Создайте массив numbers. Когда пользователь нажимает кнопке Задание 19 число должно добавляться в массив. Массив должен сохраняться в Local Storage с ключем task19. Вызывается функция по кнопке Задание 19. Что произойдёт, если нажать на кнопке трижды?
+//Cоздана форма с одним полем ввода, в которое пользователь может вводить только числа. Создайте массив numbers. Когда пользователь нажимает кнопку Задание 19 число должно добавляться в массив. Массив должен сохраняться в Local Storage с ключом task19. Вызывается функция по кнопке Задание 19. Что произойдёт, если нажать на кнопку трижды?
 
-let numbers = [];
+let numbers =  []; //чтобы массив не перезаписывался, а записывался в local storage при перезагрузке страницы let numbers = JSON.parse(localStorage.getItem('task19')) || []
 
 const addToNumbers = () => {
 	const numberInput = document.getElementById('numberInput');
 	const number = parseInt(numberInput.value);
-
-	//Ваш код
+	if (numberInput.value) {
+		numbers.push(number);
+		localStorage.setItem('task19', JSON.stringify(numbers));
+		numberInput.value = '';
+	}
 };
 
 document.querySelector('.b-19').addEventListener('click', addToNumbers);
 
 //Задание 20
-//Создайте функцию removeLastElement, которая при вызове удаляет из массива numbers последний элемент. После чего массив сохраняется в Local Storage с ключем task19 (используйте массив из задания 19). Вызывается функция по кнопке Задание 20.
+//Создайте функцию removeLastElement, которая при вызове удаляет из массива numbers последний элемент. После чего массив сохраняется в Local Storage с ключом task19 (используйте массив из задания 19). Вызывается функция по кнопке Задание 20.
 
 const removeLastElement = () => {
 	if (numbers.length > 0) {
-		//Ваш код
+		const lastNumber = numbers.splice([numbers.length - 1], 1);
+		localStorage.setItem('spliced numbers', lastNumber);
 		console.log('Последний элемент удален из массива numbers и сохранен в Local Storage.');
+		console.log(`массив numbers: ${numbers}`);
 	} else {
 		console.log('Массив numbers пуст.');
 	}
 };
 
-//добавьте слушатель события
+document.querySelector('.b-20').addEventListener('click', removeLastElement);
 
 //Задание 21
 //Создайте функцию addToCart, которая при нажатии кнопки Задание 21 получает из Local Storage сохранённый массив cartItems. Затем добавляет новый элемент в массив, представляющий товар, введённый вами в поле ввода. Массив cartItems должен сохраняться в Local Storage с ключом task21. Вызывается функция по кнопке Задание 21.
-//Подсказка: необходимо проверить существует ли значение и не является пустым. Если значение в хранилище есть, то оно преобразуется из JSON в массив. В противном случае, устанавливается пустой массив.
+//Подсказка: необходимо проверить существует ли значение и не является ли пустым. Если значение в хранилище есть, то оно преобразуется из JSON в массив. В противном случае, устанавливается пустой массив.
 
 const addToCart = () => {
 	const productInput = document.getElementById('productInput');
 	const product = productInput.value;
-
+	
 	if (product.trim() !== '') {
-		let cartItems = LocalStorage.getItem('cartItems');
+		let cartItems = localStorage.getItem('task21');
 		cartItems = cartItems ? JSON.parse(cartItems) : []; //код из подсказки
-
-		//Ваш код
-
+		cartItems.push(product);
+		localStorage.setItem('task21', JSON.stringify(cartItems));
 		console.log(`Товар "${product}" добавлен в корзину и сохранен в Local Storage.`);
+		console.log(cartItems);
+		productInput.value = '';
 	} else {
 		console.log('Введите название товара.');
 	}
@@ -298,11 +320,27 @@ document.querySelector('.b-21').addEventListener('click', addToCart);
 //Создайте функцию removeFromCart, которая при нажатии кнопки Задание 22 получает из Local Storage сохранённый массив cartItems. Затем удаляет последний элемент из массива. Массив cartItems должен сохраняться в Local Storage с ключом cartItems. Вызывается функция по кнопке Задание 22.
 //Подсказка: необходимо проверить, существует ли значение и не является ли оно пустым. Это может вызвать ошибку, если cartItems не существует в Local Storage или является пустым.
 
-const removeFromCart = () => {
-	//Ваш код
-};
+// const removeFromCart = () => {
+// 	let cartItems = localStorage.getItem('cartItems');
+// 	console.log(cartItems);
+	
+// 	if(cartItems) {
+// 		const cartArray = JSON.parse(cartItems);
 
-document.querySelector('.b-22').addEventListener('click', removeFromCart);
+// 		if (cartArray.length > 0) {
+// 			cartArray.pop();
+// 			localStorage.setItem('cartItems', JSON.stringify(cartArray));
+// 			console.log(cartArray);
+// 		} else {
+// 			console.log('Корзина пуста');
+// 		}
+
+// 	} else {
+// 			console.log('Корзина не существует в localStorage')
+// 		}
+// 	};
+
+// document.querySelector('.b-22').addEventListener('click', removeFromCart);
 
 //Задание 23
 //Создайте функцию showCart, которая при нажатии кнопки Задание 23 получает из Local Storage сохранённый массив cartItems. Выведите элементы массива в элемент с классом practicum23. Вызывается функция по кнопке Задание 23.
@@ -326,7 +364,7 @@ document.querySelector('.b-24').addEventListener('click', updateCartCount);
 //Создайте функцию clearCart, которая при нажатии кнопки Задание 25 очищает весь массив cartItems в Local Storage. Вызывается функция по кнопке Задание 25.
 
 const clearCart = () => {
-	//Ваш код
+	localStorage.clear();
 	console.log('Корзина очищена.');
 };
 
