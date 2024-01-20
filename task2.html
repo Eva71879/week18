@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/normalize.css" />
+    <link rel="stylesheet" href="assets/style__task2.css" />
+    <title>Планировщик задач</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Планировщик задач</h1>
+      <section class="addTask">
+        <h2>Добавить задачу</h2>
+        <input type="text" placeholder="Задача" class="addTask__input" />
+        <p class="errorTask"></p>
+        <button class="addTask__button">Добавить</button>
+      </section>
+      <section class="taskList">
+        <h2>Список задач</h2>
+        <p class="task__empty">Нет задач</p>
+
+        <ul class="task">
+          <!-- <li class="task__item">
+            <input type="checkbox" class="task__item" disabled />
+          </li> -->
+        </ul>
+        <button class="clearButton" disabled>Очистить список задач</button>
+      </section>
+    </div>
+    <script src="task2.js"></script>
+  </body>
+</html>

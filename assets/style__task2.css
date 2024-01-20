@@ -1,0 +1,22 @@
+/* *{
+    outline: 1px solid black;
+} */
+
+.container {
+    margin: 0 30px;
+}
+
+
+
+.task__item {
+    list-style-type: none;
+}
+
+li {
+    cursor: pointer;
+}
+
+.checked {
+    text-decoration: dotted;
+    color: rgb(5, 253, 42);
+}
