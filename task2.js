@@ -14,7 +14,7 @@ function addTask () {
         `<li class="task__item">
           <input type="checkbox" class="task__item" />${input.value}
         </li>`;
-        clearButton.disabled = false;
+        clearButton.disabled = false; //я помню рекомендацию не делать disabled кнопки изначально, но здесь в задании прямо указано сделать кнопку неактивной
 
         addtoStorage();
     }
@@ -38,44 +38,19 @@ const addtoStorage = () => {
 const loadFromStorage = () => {
     let taskListItems = localStorage.getItem('taskListItems');
     taskListItems = taskListItems ? JSON.parse(taskListItems) : [];
-
-    if (taskListItems > 0) {
-        taskList.innerHTML +=
-        `<li class="task__item">
-          <input type="checkbox" class="task__item" />${input.value}
-        </li>`;
+    for (let i = 0; i < taskListItems.length; i++) {
+        const object = taskListItems[i];
+        for (let key in object) {
+            taskList.innerHTML +=
+            `<li class="task__item">
+              <input type="checkbox" class="task__item" />${object[key]}
+            </li>`;
+        }
     }
-    
 }
+loadFromStorage ();
 
-// function showEleven() {
-// 	const arrayElevenJSON = localStorage.getItem('arrayEleven');
-// 	const arrayEleven = JSON.parse(arrayElevenJSON);
-// 	let output = '';
-// 	for (let i = 0; i < arrayEleven.length; i++) {
-// 		const object = arrayEleven[i];
-// 		for (let key in object) {
-// 			output += `${key} ${object[key]} </br>`;
-// 		}
-// 	}
-// 	document.querySelector('.practicum12').innerHTML = output;
-// }
-
-// document.querySelector('.b-12').addEventListener('click', showEleven);
-
-// const removeFromCart = () => {
-// 	let cartItems = localStorage.getItem('cartItems');
-// 	cartItems = cartItems ? JSON.parse(cartItems) : [];
-
-// 	if (cartItems.length > 0) {
-// 		cartItems.pop();
-// 		localStorage.setItem('cartItems', JSON.stringify(cartItems));
-// 		console.log('Последний добавленный товар удален из корзины');
-// 		console.log(cartItems);	
-// 	} else {
-// 		console.log('Корзина пуста, нечего удалить');
-// 	}
-// };
+  
 
 
 function clearList () {
@@ -83,31 +58,6 @@ function clearList () {
     taskEmpty.style.opacity = 1;
 }
 clearButton.onclick = clearList;
-
-
-// const addToCart = () => {
-// 	const productInput = document.getElementById('productInput');
-// 	const product = productInput.value;
-
-// 	if (product.trim() !== '') {
-// 		let cartItems = localStorage.getItem('cartItems');
-// 		cartItems = cartItems ? JSON.parse(cartItems) : []; //код из подсказки
-
-// 		cartItems.push(product);
-// 		localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-// 		console.log(`Товар "${product}" добавлен в корзину и сохранен в Local Storage.`);
-// 		console.log(cartItems);
-// 		productInput.value = '';
-// 	} else {
-// 		console.log('Введите название товара.');
-// 	}
-// };
-
-// document.querySelector('.b-21').addEventListener('click', addToCart);
-
-
-
 
 
 
