@@ -1,22 +1,174 @@
-/* *{
-    outline: 1px solid black;
-} */
-
-.container {
-    margin: 0 30px;
+*{
+    /* outline: 1px solid black; */
+    font-family: 'Playfair Display', serif;
+    box-sizing: border-box;
 }
 
+.container {
+    margin: 20px 20px;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+    width: fit-content;
+}
 
+.image {
+    width: 10%;
+}
 
-.task__item {
-    list-style-type: none;
+h1 {
+    width: 70%;
+    padding-left: 10%;
+}
+
+h2 {
+    width: 100%;
+    font-size: 30px;
+}
+
+.addTask {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.addTask__container {
+    width: 60%;
+    height: 100px;    
+}
+
+.addTask__input {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+}
+
+.errorTask {
+    height: fit-content;
+}
+
+.addTask__button {
+    width: 250px;
+    height: 100px;
+    color: white;
+    background-color: black;
+    margin-left: 20px;
+    font-size: 20px;
 }
 
 li {
     cursor: pointer;
+    font-size: 30px;
+    list-style-type: none;
+    border: 1px solid black;
+    padding: 10px;
+    margin-left: -75px;
+    margin-bottom: 10px;
+    width: 100%;
+
 }
 
 .checked {
-    text-decoration: dotted;
+    text-decoration: line-through;
     color: rgb(5, 253, 42);
+}
+
+.taskList {
+    width: 92%;
+    margin-top: 20px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.task__empty {
+    height: 10px;
+    font-size: 50px;
+    color: grey;
+    width: 100%;
+    
+}
+
+.task {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.clearButton {
+    width: 250px;
+    height: 100px;
+    color: gray;
+    background-color: lightgrey;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.enabled {
+    color: white;
+    background-color: black;
+}
+
+
+
+.real-checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+/*рамка и тень*/
+.real-checkbox:focus + .custom-checkbox {
+    box-shadow: 0px 0px 0px 1px #38577a, 0px 0px 10px #7e9bbd;
+}
+
+.custom-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 2px solid grey;
+    border-radius: 4px;
+    vertical-align: sub;
+    margin-right: 5px;
+}
+
+.custom-checkbox::before {
+    content: '';
+    /*рисуем галочку*/
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+
+    background-image: url("/assets/images/check-read-svgrepo-com.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    /*выравниваем по центру*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    margin-top: 1px;
+
+    transition: 0.2s ease-in;    
+}
+
+/*активируем декоративный чекбокс*/
+
+.real-checkbox:checked + .custom-checkbox::before {
+    transform: translate(-50%, -50%) scale(1);
 }

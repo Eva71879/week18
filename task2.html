@@ -3,28 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/normalize.css" />
     <link rel="stylesheet" href="assets/style__task2.css" />
     <title>Планировщик задач</title>
   </head>
   <body>
     <div class="container">
+      <img src="assets/images/calendar.svg" alt="calendar" class="image" />
       <h1>Планировщик задач</h1>
       <section class="addTask">
         <h2>Добавить задачу</h2>
-        <input type="text" placeholder="Задача" class="addTask__input" />
-        <p class="errorTask"></p>
+        <div class="addTask__container">
+          <input type="text" placeholder="Задача" class="addTask__input" />
+          <p class="errorTask"></p>
+        </div>
         <button class="addTask__button">Добавить</button>
       </section>
       <section class="taskList">
         <h2>Список задач</h2>
         <p class="task__empty">Нет задач</p>
-
-        <ul class="task">
-          <!-- <li class="task__item">
-            <input type="checkbox" class="task__item" disabled />
-          </li> -->
-        </ul>
+        <ul class="task"></ul>
         <button class="clearButton" disabled>Очистить список задач</button>
       </section>
     </div>
